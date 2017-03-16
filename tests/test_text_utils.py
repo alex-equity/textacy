@@ -19,12 +19,6 @@ CRUFTY_TERMS = ['( foo bar )',
 GOOD_TERMS = ['foo (bar)', 'foo?', 'bar!', '-123.4']
 BAD_TERMS = ['(foo bar', 'foo) bar', '?>,!-.', '', 'foo) (bar']
 
-LANG_SENTS = [
-    ('en', 'This sentence is in English.'),
-    ('es', 'Esta oración es en Español.'),
-    ('fr', 'Cette phrase est en français.'),
-    ('un', '1'), ('un', ' '), ('un', '')]
-
 TEXT = """
     The hedge fund magnates Daniel S. Loeb, Louis Moore Bacon and Steven A. Cohen have much in common. They have managed billions of dollars in capital, earning vast fortunes. They have invested millions in art — and millions more in political candidates.
     Moreover, each has exploited an esoteric tax loophole that saved them millions in taxes. The trick? Route the money to Bermuda and back.
@@ -55,10 +49,6 @@ class TextUtilsTestCase(unittest.TestCase):
 
     def test_is_acronym_exclude(self):
         self.assertFalse(text_utils.is_acronym('NASA', exclude={'NASA'}))
-
-    def test_detect_language(self):
-        for lang, sent in LANG_SENTS:
-            self.assertEqual(text_utils.detect_language(sent), lang)
 
     def test_keyword_in_context(self):
         observed = list(text_utils.keyword_in_context(

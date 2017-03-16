@@ -20,7 +20,7 @@ from spacy.tokens.token import Token as SpacyToken
 import textacy
 from textacy.compat import unicode_
 from textacy.constants import NUMERIC_NE_TYPES
-from textacy import data, fileio, spacy_utils, text_utils
+from textacy import data, fileio, spacy_utils
 from textacy import network
 
 
@@ -113,7 +113,7 @@ class Doc(object):
                 self.lang = lang
                 spacy_lang = data.load_spacy(self.lang)
             elif lang is None:
-                self.lang = text_utils.detect_language(content)
+                self.lang = 'en'
                 spacy_lang = data.load_spacy(self.lang)
             else:
                 msg = '`lang` must be {}, not "{}"'.format(

@@ -1,3 +1,8 @@
+Fork
+----
+
+- Removed dependency on cld2-cffi, which could not be built in my restricted environment.  It was used to automatically detect the language, for initializing spaCy, only when you do not provide it to textacy.  I have no need to detect the language.
+
 ========================================
 textacy: higher-level NLP built on spaCy
 ========================================
